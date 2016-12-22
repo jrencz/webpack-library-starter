@@ -76,6 +76,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var Component = function () {
 	    function Component(selector) {
+	        var _this = this;
+	
 	        var _ref = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
 	            name = _ref.name,
 	            onClicked = _ref.onClicked;
@@ -86,30 +88,32 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this.selector = selector;
 	        this.onClicked = onClicked;
 	
+	        this.node = (0, _jquery2.default)('<div>').on('click', function () {
+	            if (typeof _this.onClicked === 'function') {
+	                _this.onClicked();
+	            }
+	            _this.node.css('background', 'red');
+	        });
+	
 	        (0, _lodash2.default)();
 	    }
 	
 	    _createClass(Component, [{
-	        key: "createNode",
-	        value: function createNode() {
-	            var _this = this;
-	
-	            if (this.node) {
-	                throw new Error('node already created');
-	            }
-	            this.node = (0, _jquery2.default)('<div>').text("Content from standalone component named " + this.name + ". Click it. I dare you!").on('click', function () {
-	                if (typeof _this.onClicked === 'function') {
-	                    _this.onClicked();
-	                }
-	                _this.node.css('background', 'red');
-	            });
-	
-	            return this.node;
+	        key: "changeName",
+	        value: function changeName(newName) {
+	            this._name = newName;
+	            this.updateText();
+	        }
+	    }, {
+	        key: "updateText",
+	        value: function updateText() {
+	            this.node.text("Content from standalone component named " + this.name + ". Click it. I dare you!");
 	        }
 	    }, {
 	        key: "render",
 	        value: function render() {
-	            (0, _jquery2.default)(this.selector).append(this.createNode());
+	            this.updateText();
+	            (0, _jquery2.default)(this.selector).append(this.node);
 	        }
 	    }, {
 	        key: "name",

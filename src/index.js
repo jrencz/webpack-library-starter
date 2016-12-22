@@ -7,6 +7,13 @@ export default class Component {
         this.selector = selector;
         this.onClicked = onClicked;
 
+        this.node = $('<div>').on('click', () => {
+            if (typeof this.onClicked === 'function') {
+                this.onClicked();
+            }
+            this.node.css('background', 'red');
+        });
+
         noop();
     }
 
@@ -14,26 +21,19 @@ export default class Component {
         return this._name;
     }
 
-    createNode() {
-        if (this.node) {
-            throw new Error('node already created');
-        }
-        this.node = $('<div>')
-            .text(`Content from standalone component named ${ this.name }. Click it. I dare you!`)
-            .on('click', () => {
-                if (typeof this.onClicked === 'function') {
-                    this.onClicked();
-                }
-                this.node.css('background', 'red');
-            })
-        ;
+    changeName(newName) {
+        this._name = newName;
+        this.updateText();
+    }
 
-        return this.node;
+    updateText() {
+        this.node.text(`Content from standalone component named ${ this.name }. Click it. I dare you!`);
     }
 
 
     render() {
-        $(this.selector).append(this.createNode())
+        this.updateText();
+        $(this.selector).append(this.node)
     }
 
     static jQueryVersion = $().jquery;
