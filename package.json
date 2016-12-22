@@ -15,7 +15,7 @@
   "dependencies": {
     "jquery": "3.1.1",
     "lodash.noop": "3.0.1",
-    "react": "*"
+    "react": "^15.0.0"
   },
   "devDependencies": {
     "babel": "6.5.2",

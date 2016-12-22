@@ -86,7 +86,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this.selector = selector;
 	
 	        (0, _lodash2.default)();
-	        console.log(_react2.default);
+	        console.log('react version in component', _react2.default.version);
 	    }
 	
 	    _createClass(Library, [{

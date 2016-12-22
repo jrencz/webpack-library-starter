@@ -1,6 +1,6 @@
 import $ from "jquery";
 import noop from "lodash.noop";
-import react from "react";
+import React from "react";
 
 export default class Library {
     constructor(selector) {
@@ -8,7 +8,7 @@ export default class Library {
         this.selector = selector;
 
         noop();
-        console.log(react);
+        console.log('react version in component', React.version);
     }
 
     get name() {
