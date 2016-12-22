@@ -1,6 +1,6 @@
 {
   "name": "test-standalone-component",
-  "main": "dist/library.js",
+  "main": "src/index.js",
   "version": "0.0.0",
   "description": "Test standalone component",
   "scripts": {
