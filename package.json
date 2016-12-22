@@ -1,6 +1,6 @@
 {
   "name": "test-standalone-component",
-  "main": "src/index.js",
+  "main": "dist/library.js",
   "version": "0.0.0",
   "description": "Test standalone component",
   "scripts": {
@@ -9,8 +9,7 @@
     "test": "mocha --compilers js:babel-core/register --colors -w ./test/*.spec.js"
   },
   "bundledDependencies": [
-    "lodash.noop",
-    "react"
+    "lodash.noop"
   ],
   "dependencies": {
     "jquery": "3.1.1",
