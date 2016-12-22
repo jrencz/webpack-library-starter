@@ -77,12 +77,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	var Component = function () {
 	    function Component(selector) {
 	        var _ref = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
-	            name = _ref.name;
+	            name = _ref.name,
+	            onClicked = _ref.onClicked;
 	
 	        _classCallCheck(this, Component);
 	
 	        this._name = name;
 	        this.selector = selector;
+	        this.onClicked = onClicked;
 	
 	        (0, _lodash2.default)();
 	    }
@@ -96,6 +98,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	                throw new Error('node already created');
 	            }
 	            this.node = (0, _jquery2.default)('<div>').text("Content from standalone component named " + this.name + ". Click it. I dare you!").on('click', function () {
+	                if (typeof _this.onClicked === 'function') {
+	                    _this.onClicked();
+	                }
 	                _this.node.css('background', 'red');
 	            });
 	

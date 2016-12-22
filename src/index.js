@@ -2,9 +2,10 @@ import $ from "jquery";
 import noop from "lodash.noop";
 
 export default class Component {
-    constructor(selector, {name} = {}) {
+    constructor(selector, {name, onClicked} = {}) {
         this._name = name;
         this.selector = selector;
+        this.onClicked = onClicked;
 
         noop();
     }
@@ -20,6 +21,9 @@ export default class Component {
         this.node = $('<div>')
             .text(`Content from standalone component named ${ this.name }. Click it. I dare you!`)
             .on('click', () => {
+                if (typeof this.onClicked === 'function') {
+                    this.onClicked();
+                }
                 this.node.css('background', 'red');
             })
         ;
