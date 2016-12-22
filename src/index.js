@@ -1,12 +1,14 @@
 import $ from "jquery";
 import noop from "lodash.noop";
+import react from "react";
 
 export default class Library {
     constructor(selector) {
         this._name = 'Library';
         this.selector = selector;
 
-        noop()
+        noop();
+        console.log(react);
     }
 
     get name() {

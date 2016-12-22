@@ -9,11 +9,13 @@
     "test": "mocha --compilers js:babel-core/register --colors -w ./test/*.spec.js"
   },
   "bundledDependencies": [
-    "lodash.noop"
+    "lodash.noop",
+    "react"
   ],
   "dependencies": {
     "jquery": "3.1.1",
-    "lodash.noop": "3.0.1"
+    "lodash.noop": "3.0.1",
+    "react": "*"
   },
   "devDependencies": {
     "babel": "6.5.2",
