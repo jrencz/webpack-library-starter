@@ -1,13 +1,13 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("jquery"), require("react"));
+		module.exports = factory(require("jquery"));
 	else if(typeof define === 'function' && define.amd)
-		define("library", ["jquery", "react"], factory);
+		define("library", ["jquery"], factory);
 	else if(typeof exports === 'object')
-		exports["library"] = factory(require("jquery"), require("react"));
+		exports["library"] = factory(require("jquery"));
 	else
-		root["library"] = factory(root["jquery"], root["react"]);
-})(this, function(__WEBPACK_EXTERNAL_MODULE_1__, __WEBPACK_EXTERNAL_MODULE_3__) {
+		root["library"] = factory(root["jquery"]);
+})(this, function(__WEBPACK_EXTERNAL_MODULE_1__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -70,26 +70,24 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _lodash2 = _interopRequireDefault(_lodash);
 	
-	var _react = __webpack_require__(3);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
-	var Library = function () {
-	    function Library(selector) {
-	        _classCallCheck(this, Library);
+	var Component = function () {
+	    function Component(selector) {
+	        var _ref = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
+	            name = _ref.name;
 	
-	        this._name = 'Library';
+	        _classCallCheck(this, Component);
+	
+	        this._name = name;
 	        this.selector = selector;
 	
 	        (0, _lodash2.default)();
-	        console.log('react version in component', _react2.default.version);
 	    }
 	
-	    _createClass(Library, [{
+	    _createClass(Component, [{
 	        key: "createNode",
 	        value: function createNode() {
 	            var _this = this;
@@ -97,7 +95,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            if (this.node) {
 	                throw new Error('node already created');
 	            }
-	            this.node = (0, _jquery2.default)('<div>').text('Content from standalone component').on('click', function () {
+	            this.node = (0, _jquery2.default)('<div>').text("Content from standalone component named " + this.name + ". Click it. I dare you!").on('click', function () {
 	                _this.node.css('background', 'red');
 	            });
 	
@@ -115,11 +113,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	    }]);
 	
-	    return Library;
+	    return Component;
 	}();
 	
-	Library.jQueryVersion = (0, _jquery2.default)().jquery;
-	exports.default = Library;
+	Component.jQueryVersion = (0, _jquery2.default)().jquery;
+	exports.default = Component;
 	module.exports = exports["default"];
 
 /***/ },
@@ -161,12 +159,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	module.exports = noop;
 
-
-/***/ },
-/* 3 */
-/***/ function(module, exports) {
-
-	module.exports = __WEBPACK_EXTERNAL_MODULE_3__;
 
 /***/ }
 /******/ ])

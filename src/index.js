@@ -1,14 +1,12 @@
 import $ from "jquery";
 import noop from "lodash.noop";
-import React from "react";
 
-export default class Library {
-    constructor(selector) {
-        this._name = 'Library';
+export default class Component {
+    constructor(selector, {name} = {}) {
+        this._name = name;
         this.selector = selector;
 
         noop();
-        console.log('react version in component', React.version);
     }
 
     get name() {
@@ -20,7 +18,7 @@ export default class Library {
             throw new Error('node already created');
         }
         this.node = $('<div>')
-            .text('Content from standalone component')
+            .text(`Content from standalone component named ${ this.name }. Click it. I dare you!`)
             .on('click', () => {
                 this.node.css('background', 'red');
             })
