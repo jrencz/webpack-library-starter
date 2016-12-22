@@ -6,7 +6,6 @@ export default class Library {
         this._name = 'Library';
         this.selector = selector;
 
-        this.render();
         noop()
     }
 

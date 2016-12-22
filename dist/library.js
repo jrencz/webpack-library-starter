@@ -81,7 +81,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this._name = 'Library';
 	        this.selector = selector;
 	
-	        this.render();
 	        (0, _lodash2.default)();
 	    }
 	
