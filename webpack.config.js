@@ -1,6 +1,8 @@
 var webpack = require('webpack');
 var path = require('path');
-var argv = require('yargs').argv;
+var argv = require('yargs')
+    .boolean('bundled')
+    .argv;
 
 const {
     main,
@@ -10,26 +12,33 @@ const {
 
 const {
     env,
+    bundled
 } = argv;
 
 const ext = '.js';
 const srcDir = 'src';
 const destDir = path.dirname(main);
 const baseName = path.basename(main, ext);
+const suffix = bundled ?
+    '-bundled' :
+    '';
 
 const plugins = [];
 let outputFile;
 
 if (env === 'min') {
     plugins.push(new webpack.optimize.UglifyJsPlugin({minimize: true}));
-    outputFile = `${ baseName }.min${ ext }`;
+    outputFile = `${ baseName }${ suffix }.min${ ext }`;
 } else {
-    outputFile = `${ baseName }${ ext }`;
+    outputFile = `${ baseName }${ suffix }${ ext }`;
 }
 
 const externals = Object
     .keys(dependencies)
-    .filter(dependencyName => !bundledDependencies.includes(dependencyName));
+    .filter(bundled ?
+        () => false :
+        dependencyName => !bundledDependencies.includes(dependencyName)
+    );
 
 var config = {
     entry: path.join(__dirname, `${ srcDir }/index${ ext }`),

@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "description": "Test standalone component",
   "scripts": {
-    "build": "webpack && webpack --env=min",
+    "build": "webpack & webpack --env=min & webpack --bundled & webpack --bundled --env=min",
     "dev": "webpack --progress --colors --watch --env=dev",
     "test": "mocha --compilers js:babel-core/register --colors -w ./test/*.spec.js"
   },
