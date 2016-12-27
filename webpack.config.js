@@ -61,7 +61,9 @@ var config = {
                 test: /(\.js)$/,
                 loader: "eslint-loader",
                 exclude: /node_modules/
-            }
+            },
+            { test: /\.(scss|sass)$/, loader: 'style!css?importLoaders=1&camelCase&modules!postcss!sass' },
+            { test: /\.css$/, loader: 'style!css?importLoaders=1&camelCase&modules!postcss' }
         ]
     },
     resolve: {
