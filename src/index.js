@@ -1,6 +1,5 @@
 import $ from "jquery";
 import noop from "lodash.noop";
-import styles from "./index.css";
 
 export default class Component {
     constructor(selector, {name, onClicked} = {}) {
@@ -12,7 +11,7 @@ export default class Component {
             if (typeof this.onClicked === 'function') {
                 this.onClicked();
             }
-            this.node.toggleClass(styles.active);
+            this.node.toggleClass('active');
         });
 
         noop();
