@@ -6,6 +6,7 @@
   "scripts": {
     "build": "webpack & webpack --env=min & webpack --bundled & webpack --bundled --env=min",
     "dev": "webpack --progress --colors --watch --env=dev",
+    "localdev-start": "npm run dev",
     "start": "npm run dev",
     "test": "mocha --compilers js:babel-core/register --colors -w ./test/*.spec.js"
   },
