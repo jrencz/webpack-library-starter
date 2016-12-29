@@ -4,10 +4,13 @@
   "version": "0.0.0",
   "description": "Test standalone component",
   "scripts": {
+    "locallink": "localdev-link --config=\"localdev.config.json\"",
+    "localstart": "localdev-start --config=\"localdev.config.json\"",
+    "postinstall": "npm run locallink",
     "build": "webpack & webpack --env=min & webpack --bundled & webpack --bundled --env=min",
     "dev": "webpack --progress --colors --watch --env=dev",
     "localdev-start": "npm run dev",
-    "start": "npm run dev",
+    "start": "npm run dev & npm run localstart",
     "test": "mocha --compilers js:babel-core/register --colors -w ./test/*.spec.js"
   },
   "bundledDependencies": [
@@ -32,6 +35,7 @@
     "css-loader": "^0.26.1",
     "eslint": "3.12.2",
     "eslint-loader": "1.6.1",
+    "localdev": "git@github.com:jrencz/localdev.git",
     "mocha": "3.2.0",
     "node-sass": "^4.1.1",
     "postcss-loader": "^1.2.1",
