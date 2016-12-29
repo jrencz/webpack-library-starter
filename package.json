@@ -3,9 +3,12 @@
   "main": "dist/library.js",
   "version": "0.0.0",
   "description": "Test standalone component",
+  "config": {
+    "localdev": "localdev.config.json"
+  },
   "scripts": {
-    "locallink": "localdev-link --config=\"localdev.config.json\"",
-    "localstart": "localdev-start --config=\"localdev.config.json\"",
+    "locallink": "localdev-link --config=\"$npm_package_config_localdev\"",
+    "localstart": "localdev-start --config=\"$npm_package_config_localdev\"",
     "postinstall": "npm run locallink",
     "build": "webpack & webpack --env=min & webpack --bundled & webpack --bundled --env=min",
     "dev": "webpack --progress --colors --watch --env=dev",
