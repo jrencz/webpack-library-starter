@@ -59,7 +59,7 @@ that should be distributed.*
 2. Build your library
   - Run `npm install` to get the project's dependencies
   - Run `npm run build` to produce minified version of your component. 2 versions are produced: one with only
-  `bundledDependencies` and other with all `dependencies` bundled.
+  `bundleDependencies` and other with all `dependencies` bundled.
 3. Development mode
   - Having all the dependencies installed run `npm run dev`. This command will generate an non-minified version of your
   library and will run a watcher so you get the compilation on file change.

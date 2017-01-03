@@ -25,7 +25,7 @@
     "info:supported-browsers": "browserslist --config=browserslist",
     "localdev-start": "npm run dev"
   },
-  "bundledDependencies": [
+  "bundleDependencies": [
     "lodash.noop"
   ],
   "dependencies": {

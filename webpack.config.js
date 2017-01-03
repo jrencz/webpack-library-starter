@@ -7,7 +7,7 @@ var argv = require('yargs')
 const {
     main,
     dependencies,
-    bundledDependencies,
+    bundleDependencies,
 } = require('./package.json');
 
 const {
@@ -41,7 +41,7 @@ const externals = Object
     .keys(dependencies)
     .filter(bundled ?
         () => false :
-        dependencyName => !bundledDependencies.includes(dependencyName)
+        dependencyName => !bundleDependencies.includes(dependencyName)
     );
 
 var config = {
