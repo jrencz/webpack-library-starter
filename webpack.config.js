@@ -15,6 +15,8 @@ const {
     bundled
 } = argv;
 
+const sassConfig = require('./sass.conf.js');
+
 const ext = '.js';
 const srcDir = 'src';
 const destDir = path.dirname(main);
@@ -23,10 +25,12 @@ const suffix = bundled ?
     '-bundled' :
     '';
 
+const babelPresets = [];
 const plugins = [];
 let outputFile;
 
 if (env === 'min') {
+    babelPresets.push('babili');
     plugins.push(new webpack.optimize.UglifyJsPlugin({minimize: true}));
     outputFile = `${ baseName }${ suffix }.min${ ext }`;
 } else {
@@ -55,6 +59,9 @@ var config = {
             {
                 test: /(\.js)$/,
                 loader: 'babel',
+                query: {
+                  presets: babelPresets,
+                },
                 exclude: /(node_modules|bower_components)/
             },
             {
@@ -66,6 +73,7 @@ var config = {
             { test: /\.css$/, loader: 'style!css?importLoaders=1&camelCase&modules!postcss' }
         ]
     },
+    sassLoader: sassConfig,
     resolve: {
         root: path.resolve(`./${ srcDir }`),
         extensions: ['', ext]

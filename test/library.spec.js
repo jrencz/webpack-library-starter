@@ -1,19 +1,20 @@
-import chai from 'chai';
-import Library from '../lib/library.js';
+import Component from '../dist/library.js';
 
-chai.expect();
+import {expect} from 'chai';
 
-const expect = chai.expect;
+describe('Given an instance of my Component', function () {
+  let component;
 
-let lib;
+  const selector = '#foo';
+  const name = 'my-awesome-component';
 
-describe('Given an instance of my library', function () {
-  before(function () {
-    lib = new Library();
+  beforeEach(function () {
+    component = new Component(selector, {name});
   });
+
   describe('when I need the name', function () {
     it('should return the name', () => {
-      expect(lib.name).to.be.equal('Library');
+      expect(component.name).to.be.equal(name);
     });
   });
 });
