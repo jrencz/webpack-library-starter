@@ -1,0 +1,15 @@
+src/
+test/
+.babelrc
+.editorconfig
+.eslintignore
+.eslintrc.*
+.gitignore
+.npmignore
+.nvmrc
+.postcssrc
+.stylelintrc
+browserslist
+localdev.config.json
+sass.conf.js
+webpack.config.js
