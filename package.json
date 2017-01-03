@@ -7,7 +7,6 @@
     "localdev": "localdev.config.json"
   },
   "scripts": {
-    "postinstall": "npm run maintenance:locallink",
     "start": "npm run dev & npm run localstart",
     "build": "webpack & webpack --env=min & webpack --bundled & webpack --bundled --env=min",
     "dev": "webpack --progress --colors --watch --env=dev",
