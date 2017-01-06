@@ -80,15 +80,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	        var _ref = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
 	            name = _ref.name,
-	            onClicked = _ref.onClicked;
+	            onClicked = _ref.onClicked,
+	            isRTL = _ref.isRTL;
 	
 	        _classCallCheck(this, Component);
 	
 	        this._name = name;
 	        this.selector = selector;
 	        this.onClicked = onClicked;
+	        this.isRTL = isRTL;
 	
-	        this.node = (0, _jquery2.default)('<div>').on('click', function () {
+	        this.node = (0, _jquery2.default)('<div>').addClass('demo-component').on('click', function () {
 	            if (typeof _this.onClicked === 'function') {
 	                _this.onClicked();
 	            }
@@ -102,17 +104,25 @@ return /******/ (function(modules) { // webpackBootstrap
 	        key: "changeName",
 	        value: function changeName(newName) {
 	            this._name = newName;
-	            this.updateText();
+	            this.update();
 	        }
 	    }, {
-	        key: "updateText",
-	        value: function updateText() {
-	            this.node.text("Content from standalone component named " + this.name + ". Click it. I dare you!");
+	        key: "setRTL",
+	        value: function setRTL(isRTL) {
+	            this.isRTL = isRTL;
+	            this.update();
+	        }
+	    }, {
+	        key: "update",
+	        value: function update() {
+	            this.node.attr({
+	                dir: this.isRTL ? 'rtl' : null
+	            }).text("Content from standalone component named " + this.name + ". Click it. I dare you!");
 	        }
 	    }, {
 	        key: "render",
 	        value: function render() {
-	            this.updateText();
+	            this.update();
 	            (0, _jquery2.default)(this.selector).append(this.node);
 	        }
 	    }, {
