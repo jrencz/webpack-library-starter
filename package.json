@@ -28,7 +28,7 @@
     "lodash.noop"
   ],
   "dependencies": {
-    "test-theme": "git@github.com:jrencz/test-documentcss.git#master",
+    "test-theme": "github:jrencz/test-documentcss#master",
     "jquery": "3.1.1",
     "lodash.noop": "3.0.1"
   },
@@ -50,8 +50,8 @@
     "jsdom": "^9.9.1",
     "lintspaces": "^0.5.0",
     "lintspaces-cli": "github:jrencz/lintspaces-cli#dotfiles",
-    "localdev": "git@github.com:jrencz/localdev.git",
     "mocha": "3.2.0",
+    "localdev": "github:jrencz/localdev",
     "node-sass": "^4.1.1",
     "postcss-loader": "^1.2.1",
     "sass-loader": "^4.1.1",
