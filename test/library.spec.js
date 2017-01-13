@@ -1,7 +1,5 @@
 import Component from '../dist/library.js';
 
-import {expect} from 'chai';
-
 describe('Given an instance of my Component', function () {
   let component;
 
@@ -14,7 +12,7 @@ describe('Given an instance of my Component', function () {
 
   describe('when I need the name', function () {
     it('should return the name', () => {
-      expect(component.name).to.be.equal(name);
+      expect(component.name).toBe(name);
     });
   });
 });

@@ -1,9 +1,8 @@
 {
   "env": {
-    "mocha": true
+    "jasmine": true
   },
   "plugins": [
-    "mocha",
-    "chai-expect"
+    "jasmine"
   ]
 }
