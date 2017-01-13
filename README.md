@@ -1,4 +1,4 @@
-# External webapp component starter
+# External webapp component starter [![Build Status](https://api.travis-ci.org/jrencz/webpack-library-starter.svg?branch=stand-alone-component-test)](https://travis-ci.org/jrencz/webpack-library-starter)
 
 Web application component starter for either single-page apps or non-SPA pages.
 
