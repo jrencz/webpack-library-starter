@@ -41,7 +41,7 @@ const externals = Object
     .keys(dependencies)
     .filter(bundled ?
         () => false :
-        dependencyName => !bundleDependencies.includes(dependencyName)
+        dependencyName => !(bundleDependencies || []).includes(dependencyName)
     );
 
 var config = {
