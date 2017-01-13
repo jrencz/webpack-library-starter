@@ -1,7 +1,6 @@
 const webpackConfig = require('./webpack.config');
 
-const source = './src/**/*.js';
-const suite = './test/**/*.spec.js';
+const suite = 'spec.bundle.js';
 
 module.exports = function (config) {
   const configuration = {
@@ -16,20 +15,14 @@ module.exports = function (config) {
     ],
 
     // list of files/patterns to load in the browser
-    files: [
-      { pattern: source, watched: false },
-      { pattern: suite, watched: false }
-    ],
+    files: [{ pattern: suite, watched: false }],
 
     // files to exclude
     exclude: [],
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-    preprocessors: {
-      [source]: ['webpack', 'sourcemap'],
-      [suite]: ['webpack', 'sourcemap']
-    },
+    preprocessors: {[suite]: ['webpack', 'sourcemap']},
 
     webpack: Object.assign({}, {
       devtool: 'inline-source-map',

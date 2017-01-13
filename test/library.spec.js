@@ -1,4 +1,4 @@
-import Component from '../dist/library.js';
+import Component from '../src/';
 
 describe('Given an instance of my Component', function () {
   let component;
